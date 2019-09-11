@@ -1,14 +1,50 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Encrypt Messenger
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <!-- Disabled and readonly textarea in an item with a stacked label -->
+  <ion-item>
+    <ion-label position="stacked">Input</ion-label>
+    <ion-textarea [(ngModel)]="encrypt.input" name="encrypt.input">
+    </ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" >Output</ion-label>
+    <ion-textarea [(ngModel)]="encrypt.output" name="encrypt.output">
+    </ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Key</ion-label>
+    <ion-input [(ngModel)]="encrypt.key">
+      
+    </ion-input>
+  </ion-item>
+  <br>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" (click)="encryptString()">Encrypt</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button color="secondary" (click)="decryptString()" expand="block">Decrypt</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button *ngIf="showbtnShared" color="success" (click)="shareWhatApp()" expand="block">Shared WhatApp</ion-button>
+    </ion-col>
+  </ion-row>
+
+  
+  <!-- <ion-button block></ion-button> -->
+
 </ion-content>
